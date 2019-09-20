@@ -130,7 +130,7 @@ function Row(props){
 					className	={e.className} 
 					onDragStart = { (event) => props.handleDragStart(event, e.uid) } 
 					key			={ e.uid }>
-						<ExpRadioGroup
+						<RadioGroup
 						dragEnter  	 	= { props.dragEnter === e.uid }
 						uid		 	 	= { e.uid }
 						label		 	= { e.label }
