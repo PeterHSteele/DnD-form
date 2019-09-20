@@ -1,0 +1,383 @@
+:root{
+	--blue:rgb(45,75,250);
+}
+
+body{
+	font-family:sans-serif;
+	font-size: 16px;
+
+}
+
+/* top-level components*/
+
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+	/*form editor + input editor*/
+.input-maker{
+	box-sizing:border-box;
+	flex-grow:1;
+	margin: .5em 1%;
+	flex-shrink:1;
+}
+
+.edit-pane {
+	width:20%;
+	box-sizing:border-box;
+	margin: .5em 1%;
+	flex: 1 1;
+	max-width:25%;
+}
+
+/*Main Form*/
+.container>.react-form {
+	box-sizing:border-box;
+	flex: 3 1;
+	width: 70%;
+	margin: .5em 1%;
+	align-self: stretch;
+	min-height:300px;
+	min-width:70%;
+	display:flex;
+	flex-direction:column;
+}
+
+.react-form form{
+	flex-grow:10;
+}
+
+/*Input-Maker*/
+.container>div:first-child {
+	flex-basis:25%;
+}
+
+/* general spacing */
+
+h1,
+h2,
+h5{
+	text-align: center;
+	clear:both;
+}
+
+form > div {
+	margin: 10px auto;
+}
+
+form p {
+	margin: .2em 0;
+}
+
+/* Basic input and label styles */
+
+label,
+input,
+select{
+	margin: 0 auto;
+	font-size:1em;
+}
+
+label{
+	align-self:center;
+}
+
+/*Checkbox hack + other checkbox styles*/
+
+input[type=checkbox]{
+	position:absolute;
+	left:-10000px;
+}
+
+.check-wrap{
+	flex-basis:80%;
+}
+	
+input[type=checkbox]+div{/* 'fake' checkbox*/
+	float:left;	
+	height:1em;
+	width:1em;
+	border:2px solid pink;
+}
+
+input[type=checkbox]:checked+div{
+	background:var(--blue);
+}
+
+/* keep checkbox label from overflowing input in editor*/
+
+
+.inputs-editor .check-wrap
+/*.input-maker .check-wrap*/{
+	float:right;
+	width:auto;
+}
+/*
+.input-maker .control .check-component-wrapper label{
+	float:none;
+	display:inline;
+}
+*/
+
+.inputs-editor .check-component-wrapper{
+	display:table;
+	content:'';
+	clear:both;
+	width:100%;
+}
+
+/* Submit Input */
+input[type=submit]{
+	flex-basis: 10%;
+	color: white;
+	padding: 10px;
+	background: var(--blue);
+	border: 2px solid pink;
+	border-radius: 5px;
+}
+
+input[type=submit]:hover{
+	background: pink;
+	color: var(--blue);
+}
+
+/*Radio Input*/
+input[type=radio]{
+	margin-right: .2em;
+}
+
+.control .radio-options-wrap{
+
+	display:block;
+	box-sizing:border-box;
+	padding-left: 6%;
+}
+
+.control .radio-options-wrap input{
+	width:auto;
+}
+
+.radio-group-label{
+	/*font-size: 1.2em;*/
+}
+
+.radio-label{
+	display:block;
+	color:inherit;
+	font-size: inherit;
+	float:left;
+	width:100%;
+}
+
+/* Select */
+select{
+	flex-basis:80%;
+}
+
+/* Editor-specific input styles*/
+
+.inputs-editor input[type=text],
+.form-editor input[type=text]{
+	display: block;
+	width: 100%;
+}
+
+.input-maker{
+	margin-top: 1em;
+}
+
+#input-level{
+	margin-bottom:1em;
+}
+
+.input-maker h2{
+	color: var(--blue);
+}
+/*
+.input-maker .control{
+	width:80%;
+	margin: 0  auto;
+}
+
+.input-maker .control>div{
+	width:100%;
+	display:block;
+}
+
+.input-maker .control div label{
+	padding: .25em 1em 0;
+}
+
+
+*/
+
+.input-maker .control label,
+.input-maker .control input,
+.input-maker .control .radio-group-label,
+.input-maker .control .radio-options-wrap,
+.input-maker .control .check-wrap{
+	margin: auto;
+	flex: 1 1 50%;
+}
+
+
+
+.input-maker .control>div>label,
+.input-maker .control>div>.radio-group-label{
+	text-align: right;
+	padding-right: 1em;
+}
+
+
+/* 
+Row and Control styles 
+".control div" selector is wrapper for all input/label combinations
+*/
+
+.row{
+	display:flex;
+}
+
+.control{
+	/*display: inline-block*/	
+	flex-grow:2;
+	flex-basis:67%;
+}
+
+.control div{
+	width:100%;
+	display:flex;
+}
+
+.control div:after{
+	display:table;
+	content:"";
+	clear:both;
+}
+
+.control div input{
+	display:block;
+	float:left;
+	flex-basis: 80%;
+	flex-grow:2;
+	flex-shrink:1;
+}
+
+.control>div>label,
+.radio-group-label{
+	padding: 0 .2em;
+	box-sizing:border-box;
+	display:block;
+	float:left;
+	flex-basis: 20%;
+	flex-grow:1;
+	flex-shrink:2;
+}
+
+.control.half-width div input,
+.control.half-width div select,
+.control.half-width div .check-wrap{
+	flex: 1 1 60%;
+}
+
+.control.half-width>div>label,
+.half-width .radio-group-label{
+	flex: 1 1 40%;
+}
+
+/*Misc*/
+
+.error{
+	color:red;
+	font-size: .6em;
+}
+
+.card{
+	box-sizing:border-box;
+	box-shadow: 2px 2px 20px 0px rgb(150,150,150);
+	border:1px solid #DDD;
+	border-radius: 5px;
+	padding:1em;
+}
+
+.clearfix{
+	display:table;
+	content:"";
+	clear:both;
+}
+
+.dot-wrap{
+	margin: 0 auto;
+	width: 6em;
+}
+
+.dot{
+	background:var(--blue);
+	width:.5em;
+	height:.5em;
+	border-radius: 50%;
+	float:left;
+	margin:.5em;
+}
+.dot-1{
+	animation: 3s infinite waiting;
+}
+.dot-2{
+	animation: 3s .5s infinite waiting;
+}
+.dot-3{
+	animation: 3s 1s infinite waiting;
+}
+
+@keyframes waiting{
+	0%{
+		transform:scale(1);
+	}
+	50%{
+		transform:scale(2);
+	}
+	0%{
+		transform:scale(1);
+	}
+}
+
+/* Media Queries */
+
+@media screen and (max-width:1000px){
+	.input-maker{
+		order:3;
+		max-width:25%;
+	}
+
+	.edit-pane{
+		width:20%;
+	}
+
+	.react-form{
+		width:70%;
+	}
+}
+
+@media screen and ( max-width: 900px ){
+	.container{
+		flex-flow:column wrap;
+		align-items:stretch;
+	}
+
+	.edit-pane{
+		max-width:none;
+		width:auto;
+	}
+
+	.input-maker{
+		width:auto;
+		max-width:none;
+	}
+
+	.react-form{
+		width:auto;
+	}
+
+}
